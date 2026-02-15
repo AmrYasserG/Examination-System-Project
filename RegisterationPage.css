@@ -1,0 +1,221 @@
+:root {
+    --bg-color: #e6eeff;
+    --card: white;
+    --text-black: black;
+    --text-white: white;
+    --text-gray: gray;
+    --border: lightgray;
+    --primary: #155dfc;
+    --secondary: #1447e6;
+    --error: #dc2626;
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+    /* :root{ */
+    --bg-color: #0f0f10;
+    --card: #1a1a1c;
+    --text-black: #f5f5f5;
+    --text-white: #0f0f10;
+    --text-gray: #a1a1aa;
+    --border: #2a2a2e;
+    --primary: #155dfc;
+    --secondary: #1447e6;
+    --error: #f87171;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    /* box-sizing: border-box; */
+    /* margin: 20px; */
+    background-color: var(--bg-color);
+    color: var(--text-black);
+}
+
+.theme-button {
+    width: 40px;
+    background-color: var(--card);
+    padding: 7px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    justify-self: right;
+}
+
+.theme-button:hover {
+    cursor: pointer;
+    background-color: var(--border);
+}
+
+.theme-button:active {
+    background-color: var(--card);
+}
+
+.theme img {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    margin-top: 70px;
+    align-self: center;
+    box-sizing: border-box;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background-color: var(--card);
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 10px 20px rgba(0, 0, 0, 0.08),
+        0 20px 40px rgba(0, 0, 0, 0.10);
+
+}
+
+.logo {
+    max-width: 200px;
+    margin: 0px auto;
+    padding-top: 20px;
+
+}
+
+.logo img {
+    width: 100%;
+}
+
+.create-text {
+    text-align: center;
+    padding: 20px;
+    /* max-width: fit-content; */
+}
+
+.create-text p,
+h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.create-text h2 {
+    padding: 5px;
+}
+
+.register-form label,
+input,
+span {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-text {
+    /* width: 100%; */
+    height: 25px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--card);
+    color: var(--text-black);
+
+}
+
+.cont-with {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 5px;
+}
+
+.cont-with::before,
+.cont-with::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.cont-with span {
+    color: var(--text-gray);
+}
+
+.cont-with hr,
+span {
+    padding: 0px;
+    margin: auto 3px;
+}
+
+#create-button {
+    width: 100%;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    color: white;
+
+}
+
+#create-button:hover {
+    cursor: pointer;
+    background-color: var(--secondary);
+}
+
+#create-button:active {
+    background-color: var(--primary);
+}
+
+#google-button {
+    width: 100%;
+    height: 40px;
+    background-color: var(--card);
+    color: var(--text-black);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#google-button:hover {
+    cursor: pointer;
+    background-color: var(--border);
+}
+
+#google-button:active {
+    background-color: var(--card);
+}
+
+.already-text {
+    text-align: center;
+}
+
+.already-text a {
+    color: var(--secondary);
+}
+
+/* .already-text a :visited {
+    color: green;
+} */
+
+.google-icon {
+    height: 20px;
+    padding: 0px 10px;
+}
+
+.google-icon img {
+    height: 100%;
+}
+
+.error-msg {
+    color: var(--error);
+}

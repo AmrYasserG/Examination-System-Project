@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="/ResultPage.css">
+</head>
+
+<body>
+    <main>
+        <div class="trophy-container">
+            <img src="/assests/trophy.png" alt="Trophy Image">
+        </div>
+        <div class="main-text">
+            <h2>Exam Completed!</h2>
+            <span>Great Job! Here are your results</span>
+        </div>
+        <div class="scores-container">
+            <div class="score-overall">
+                <span>Your Score</span>
+                <span id="overall-score">80%</span>
+            </div>
+            <div class="correct-answers">
+                <span>Correct Answers</span>
+                <span id="correct-score">8</span>
+            </div>
+            <div class="wrong-answers">
+                <span>Wrong Answers</span>
+                <span id="wrong-score">2</span>
+            </div>
+        </div>
+        <div class="overview">
+            <h5>Performance Overview</h5>
+            <div class="pie-chart"></div>
+            <div class="pie-text">
+                <div class="correct-box"></div>
+                <span>Correct</span>
+                <div class="wrong-box"></div>
+                <span>Wrong</span>
+            </div>
+        </div>
+    </div>
+    <div class="overview-buttons">
+        <button id="home-button">
+            <div> <img src="/assests/home.png" alt="Home Icon"></div>
+            Back to Home
+        </button>
+        <button id="leaderboard-button">
+            <div> <img src="/assests/trophy-outline-white.png" alt="Home Icon"></div>
+            View Leaderboard
+        </button>
+    </main>
+    <section class="answers-overview">
+        <h3>Review Wrong Answers</h3>
+        <div class="ques-correction">
+            <span>What is the capital of France?</span>
+            <span>Your Answer</span>
+            <span>London</span>
+            <span>Correct Answer</span>
+            <span>Paris</span>
+        </div>
+    </section>
+
+
+
+    <script src="/ResultPage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+    <link rel="stylesheet" href="/RegisterationPage.css">
+</head>
+
+<body>
+    <main>
+        <section class="theme">
+            <button class="theme-button" id="theme-button" onclick="toggleTheme()">
+                <img src="/assests/moon.png" alt="Theme Image" id="theme-img">
+            </button>
+        </section>
+        <section class="main-section">
+            <div class="logo">
+                <img src="/assests/ExamProLogo.png" alt="ExamPro Logo">
+            </div>
+            <div class="create-text">
+                <h2>Create Account</h2>
+                <p>Join ExamPro and start your journey</p>
+            </div>
+            <form action="/HomePage.html" class="register-form" onsubmit="validateSubmission(event)">
+                <label for="fname-input">First Name</label>
+                <input onblur="validateFName()" autocomplete="off" class="input-text" type="text" name="fname" id="fname-input">
+                <span class="error-msg" id="fname-error"></span>
+                <br>
+                <label for="lname-input">Last Name</label>
+                <input onblur="validateLName()" autocomplete="off" class="input-text" type="text" name="lname" id="lname-input">
+                <span class="error-msg" id="lname-error"></span>
+                <br>
+                <label for="email-input">Email Address</label>
+                <input onblur="validateEmail()" autocomplete="off" class="input-text" type="text" name="email" id="email-input">
+                <span class="error-msg" id="email-error"></span>
+                <br>
+                <label for="password-input">Password</label>
+                <input onblur="validatePass()" autocomplete="off" class="input-text" type="password" name="password" id="password-input">
+                <span class="error-msg" id="password-error"></span>
+                <br>
+                <label for="cpassword-input">Confirm Password</label>
+                <input onblur="validateCPass()" autocomplete="off" class="input-text" type="password" name="cpassword" id="cpassword-input">
+                <span class="error-msg" id="cpassword-error"></span>
+                <br>
+                <input type="submit" name="create" id="create-button" value="Create Account">
+            </form>
+            <div class="cont-with">
+                <span>or countinue with</span>
+            </div>
+            <button id="google-button">
+                <div class="google-icon">
+                    <img src="/assests/google-icon.png" alt="Google Icon">
+                </div>
+                Sign up with Google
+            </button>
+            <p class="already-text">Already have an Account? <a href="/LoginPage.html">Sign in</a></p>
+
+
+        </section>
+    </main>
+    <script src="/RegisterationPage.js"></script>
+</body>
+
+</html>
