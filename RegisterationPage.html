@@ -12,18 +12,18 @@
     <main>
         <section class="theme">
             <button class="theme-button" id="theme-button" onclick="toggleTheme()">
-                <img src="/assests/moon.png" alt="Theme Image" id="theme-img">
+                <img src="assests/moon.png" alt="Theme Image" id="theme-img">
             </button>
         </section>
         <section class="main-section">
             <div class="logo">
-                <img src="/assests/ExamProLogo.png" alt="ExamPro Logo">
+                <img src="assests/ExamProLogo.png" alt="ExamPro Logo">
             </div>
             <div class="create-text">
                 <h2>Create Account</h2>
                 <p>Join ExamPro and start your journey</p>
             </div>
-            <form action="/HomePage.html" class="register-form" onsubmit="validateSubmission(event)">
+            <form action="index.html" class="register-form" onsubmit="validateSubmission(event)">
                 <label for="fname-input">First Name</label>
                 <input onblur="validateFName()" autocomplete="off" class="input-text" type="text" name="fname" id="fname-input">
                 <span class="error-msg" id="fname-error"></span>
@@ -46,21 +46,21 @@
                 <br>
                 <input type="submit" name="create" id="create-button" value="Create Account">
             </form>
-            <div class="cont-with">
+            <!-- <div class="cont-with">
                 <span>or countinue with</span>
             </div>
             <button id="google-button">
                 <div class="google-icon">
-                    <img src="/assests/google-icon.png" alt="Google Icon">
+                    <img src="assests/google-icon.png" alt="Google Icon">
                 </div>
-                Sign up with Google
+                Sign up with Google -->
             </button>
             <p class="already-text">Already have an Account? <a href="/LoginPage.html">Sign in</a></p>
 
 
         </section>
     </main>
-    <script src="/RegisterationPage.js"></script>
+    <script src="RegisterationPage.js"></script>
 </body>
 
 </html>

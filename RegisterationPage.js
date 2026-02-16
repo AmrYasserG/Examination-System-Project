@@ -6,17 +6,17 @@ themeImg = document.getElementById('theme-img')
 // localStorage.setItem('theme', 'light');
 // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 //     document.body.classList.add('dark');
-//     themeImg.src = '/assests/sun.png';
+//     themeImg.src = 'assests/sun.png';
 //     localStorage.setItem('theme', 'dark');
 // }
 
 if (localStorage.theme === 'dark') {
     document.body.classList.add('dark');
-    themeImg.src = '/assests/sun.png';
+    themeImg.src = 'assests/sun.png';
 }
 else {
     document.body.classList.add('light');
-    themeImg.src = '/assests/moon.png';
+    themeImg.src = 'assests/moon.png';
 }
 
 themeButton.onclick = () => {
@@ -26,9 +26,9 @@ themeButton.onclick = () => {
     localStorage.setItem('theme',
         document.body.classList.contains('dark') ? 'dark' : 'light');
     if (themeImg.src.split('/')[4] === 'moon.png')
-        themeImg.src = '/assests/sun.png';
+        themeImg.src = 'assests/sun.png';
     else
-        themeImg.src = '/assests/moon.png';
+        themeImg.src = 'assests/moon.png';
 };
 
 
@@ -37,7 +37,7 @@ themeButton.onclick = () => {
 var fname = document.getElementById('fname-input');
 var lname = document.getElementById('lname-input');
 var email = document.getElementById('email-input');
-var password1 = document.getElementById('password-input');
+var password = document.getElementById('password-input');
 var cpassword = document.getElementById('cpassword-input');
 
 var fnameError = document.getElementById('fname-error');
@@ -80,23 +80,28 @@ function validateEmail() {
         emailError.textContent = ''
 }
 function validatePass() {
-    if (password1.value === "")
+    if (password.value === "")
         passwordError.textContent = '*Ths Field is Required'
-    else if (password1.value.length < 8)
+    else if (password.value.length < 8)
         passwordError.textContent = '*Password Needs to be More than 8 Letters'
     else
         passwordError.textContent = ''
+
+    if (password.value !== '' && cpassword.value !== '' && password.value === cpassword.value) {
+        cpasswordError.textContent = ''
+    }
 }
 function validateCPass() {
     if (cpassword.value === "")
         cpasswordError.textContent = '*Ths Field is Required'
-    else if (cpassword.value !== password1.value)
+    else if (cpassword.value !== password.value)
         cpasswordError.textContent = '*Password Does Not Match'
     else
         cpasswordError.textContent = ''
 }
 
 function validateSubmission(e) {
+    formEvent = e;
     var flagEmpty = false;
     if (fname.value === '') {
         flagEmpty = true
@@ -110,7 +115,7 @@ function validateSubmission(e) {
         flagEmpty = true
         validateEmail();
     }
-    if (password1.value === '') {
+    if (password.value === '') {
         flagEmpty = true
         validatePass();
     }
@@ -121,13 +126,55 @@ function validateSubmission(e) {
     if (fnameError.textContent !== ''
         || lnameError.textContent !== ''
         || emailError.textContent !== ''
-        || mobileError.textContent !== ''
         || passwordError.textContent !== ''
         || cpasswordError.textContent !== ''
         || flagEmpty === true) {
         e.preventDefault();
     }
-    // else{
-    //     //add user to json file
-    // }
+    else {
+        addToUsers();
+    }
 }
+
+//add user to localStorage-------------
+function addToUsers() {
+    var user = {
+        fname: (fname.value).trim(),
+        lname: (lname.value).trim(),
+        email: (email.value).trim(),
+        password: (password.value).trim(),
+        grade: -1
+    }
+    if (localStorage.getItem('users') === null) {
+        var users = [];
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users))
+    }
+    else {
+        var users = JSON.parse(localStorage.getItem('users'))
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email === user.email) {
+                formEvent.preventDefault();
+                emailError.textContent = '*email already exists';
+                return "";
+            }
+        }
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+        userSession();
+    }
+}
+
+//add user to sessionStorage-----------------
+function userSession() {
+    var user = {
+        fname: (fname.value).trim(),
+        lname: (lname.value).trim(),
+        email: (email.value).trim(),
+        password: (password.value).trim(),
+        grade: -1
+    };
+    sessionStorage.setItem('user',JSON.stringify(user));
+}
+
+
