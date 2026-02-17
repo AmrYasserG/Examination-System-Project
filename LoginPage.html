@@ -3,9 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="RegisterationPage.css">
     <title>Login Page</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <main>
+    <section class="main-section">
+
+        <div class="logo">
+            <img src="assests/ExamProLogo.png" alt="ExamPro Logo">
+        </div>
+
+        <div class="create-text">
+            <h2>Login</h2>
+            <p>Welcome back! please login to continue</p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+
+            <label for="email-input">Email</label>
+            <input class="input-text" type="text" id="email-input">
+            <span class="error-msg" id="email-error"></span>
+
+            <label for="password-input">Password</label>
+            <input class="input-text" type="password" id="password-input">
+            <span class="error-msg" id="password-error"></span>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <a href="#" class="forgot">Forgot password?</a>
+            </div>
+             
+            <br>
+
+            <input type="submit" id="create-button" value="Login">
+            <div class="cont-with">
+                <hr>
+                <span>or countinue with</span>
+                <hr>
+            </div>
+
+             <button id="google-button">
+                <div class="google-icon">
+                    <img src="/assests/google-icon.png" alt="Google Icon">
+                </div>
+                Sign up with Google
+            </button>
+        </form>
+
+        <p class="already-text">
+            Don't have an Account?
+            <a href="RegisterationPage.html" target="_blank" >Register </a>
+        </p>
+
+    </section>
+</main>
+
+<script src="login.js"></script>
 </body>
 </html>

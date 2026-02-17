@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("assests/ef9860e7662cb6c4fae2fe245028f04e.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  width: 90%;
+  height: 90vh;
+  margin: auto;
+  margin-top: 5vh;
+  background-image: url("assests/7aafb819b286460a74c4ce566bbd755c.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  padding: 30px 60px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 120px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
