@@ -7,19 +7,19 @@
 
 body {
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden;
   background-image: url("assests/ef9860e7662cb6c4fae2fe245028f04e.jpg"); 
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
-/* ===== HERO SECTION ===== */
+
 .hero {
   width: 90%;
   height: 90vh;
   margin: auto;
   margin-top: 5vh;
-  background-image: url("assests/7aafb819b286460a74c4ce566bbd755c.gif");
+  background-image: url("assests/landing.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -53,6 +53,22 @@ body {
   color: #333;
   font-size: 14px;
   font-weight: 500;
+  font-weight: bold;
+}
+
+.btn{
+  display: inline-block;
+  width: 20%;
+  height: 5%;
+  margin-top: 20%;
+  margin-left: 7%;
+  background-color: rgb(208, 208, 246);
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px; 
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 

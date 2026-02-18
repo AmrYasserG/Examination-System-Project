@@ -150,6 +150,11 @@ h2 {
     justify-content: center;
     padding: 20px;
     flex-wrap: wrap;
+    
+}
+.overview-buttons a{
+    text-decoration: none;
+
 }
 
 #home-button,
@@ -162,6 +167,7 @@ h2 {
     align-items: center;
 
 }
+
 
 #home-button {
     color: var(--text-black);

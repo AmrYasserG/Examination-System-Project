@@ -1,34 +1,72 @@
-const form = document.getElementById("loginForm");
-const emailInput = document.getElementById("email-input");
-const passwordInput = document.getElementById("password-input");
 
-const emailError = document.getElementById("email-error");
-const passwordError = document.getElementById("password-error");
+var email = document.getElementById('email-input');
+var password = document.getElementById('password-input');
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+var emailError = document.getElementById('email-error');
+var passwordError = document.getElementById('password-error');
 
-    let isValid = true;
+var loginForm = document.getElementById('loginForm');
 
-    emailError.textContent = "";
-    passwordError.textContent = "";
 
-    if (emailInput.value.trim() === "") {
-        emailError.textContent = "Username is required";
-        isValid = false;
-    }
 
-    if (passwordInput.value.trim() === "") {
-        passwordError.textContent = "Password is required";
-        isValid = false;
-    } else if (passwordInput.value.length < 6) {
-        passwordError.textContent = "Password must be at least 6 characters";
-        isValid = false;
-    }
 
-    if (isValid) {
-    // alert("Login successful 🎉");
-    window.location.href = "HomePage.html"; 
+function validateEmail() {
+    const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (email.value.trim() === "")
+        emailError.textContent = '*This Field is Required'
+    else if (!(checkEmail.test(email.value)))
+        emailError.textContent = '*Email Not Valid'
+    else
+        emailError.textContent = ''
 }
 
-});
+function validatePass() {
+    if (password.value.trim() === "")
+        passwordError.textContent = '*This Field is Required'
+    else
+        passwordError.textContent = ''
+}
+
+
+
+function validateLogin(e) {
+
+    e.preventDefault();
+
+    validateEmail();
+    validatePass();
+
+    if (emailError.textContent !== '' || passwordError.textContent !== '') {
+        return;
+    }
+
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+
+    var foundUser = null;
+
+    for (var i = 0; i < users.length; i++) {
+
+        if (users[i].email === email.value.trim()
+            && users[i].password === password.value.trim()) {
+
+            foundUser = users[i];
+            break;
+        }
+    }
+
+    if (foundUser !== null) {
+
+       
+        sessionStorage.setItem('user', JSON.stringify(foundUser));
+
+       
+        window.location.href = "index.html";
+
+    } else {
+        emailError.textContent = '*Invalid Email or Password';
+    }
+}
+
+
+loginForm.addEventListener('submit', validateLogin);
