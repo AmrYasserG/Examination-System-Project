@@ -16,13 +16,14 @@
                 <img src="assests/clock.png" alt="">
             </div>
             <span class="countdown font-mono text-2xl">
-                <span style="--value:24; --digits: 2;" aria-live="polite" aria-label="24">24</span>
+                <span id="timer-mins" style="--value:10; --digits: 2;" aria-live="polite"></span>
                 :
-                <span style="--value:59; --digits: 2;" aria-live="polite" aria-label="59">59</span>
+                <span id="timer-secs" style="--value:00; --digits: 2;" aria-live="polite"></span>
             </span>
         </div>
 
-        <progress class="progress progress-accent w-full " value="40" max="100"></progress>
+        <progress id="progress-bar" class="progress progress-accent w-full transition duration-10 " value="100"
+            max="100"></progress>
 
     </header>
     <div class="">
@@ -34,63 +35,102 @@
             <div class="bg-gray-100 p-10 md:col-span-3 ">
                 <div class="bg-white rounded-xl shadow-lg ">
                     <div class="flex justify-between items-center px-5 py-3">
-                        <span class="text-xl">Question 2 of 10</span>
-                        <button class="rounded-xl bg-blue-500 text-white px-5 py-2">Mark</button>
+                        <span class="text-xl">Question <span id="question-num"></span> of 10</span>
+                        <button id="marked-button"
+                            class="hidden rounded-xl bg-blue-600 text-white px-4 py-2  hover:bg-blue-700 active:bg-blue-600 flex justify-center items-center gap-1">
+                            <div class=" w-5 h-5 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox=" 0 0 24 24">
+                                    <path
+                                        d="M5 6.2C5 5.07989 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.07989 3 8.2 3H15.8C16.9201 3 17.4802 3 17.908 3.21799C18.2843 3.40973 18.5903 3.71569 18.782 4.09202C19 4.51984 19 5.07989 19 6.2V21L12 16L5 21V6.2Z"
+                                        fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            Marked
+                        </button>
+                        <button id="mark-button"
+                            class="rounded-xl border-gray-300 border-1  px-4 py-2  hover:bg-gray-300 active:bg-transparent flex justify-center items-center gap-1">
+                            <div class=" w-5 h-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox=" 0 0 24 24">
+                                    <path
+                                        d="M5 6.2C5 5.07989 5 4.51984 5.21799 4.09202C5.40973 3.71569 5.71569 3.40973 6.09202 3.21799C6.51984 3 7.07989 3 8.2 3H15.8C16.9201 3 17.4802 3 17.908 3.21799C18.2843 3.40973 18.5903 3.71569 18.782 4.09202C19 4.51984 19 5.07989 19 6.2V21L12 16L5 21V6.2Z"
+                                        stroke="#000000" stroke-width="2" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            Mark for Review
+                        </button>
                     </div>
                     <div class="px-5">
                         <hr class="bg-gray-300 h-0.5 border-none">
                     </div>
-                    <span class="p-5 block ">Which planet is known as the Red Planet</span>
+                    <span id="question-text" class="p-5 block "></span>
                     <div class="flex flex-col flex-grow-1 px-5 gap-5 pb-5">
-                        <div class="border-1 py-3 px-5 rounded-xl border-gray-300">
-                            <input type="radio" name="answer">
-                            <label class="px-3">Venus</label>
+                        <div class="border-1 rounded-xl border-gray-300 justify-start flex hover:bg-gray-300 active:bg-transparent"">
+                            <input  onclick=" selectAnswer(this)" id="input-1" type="radio" name="answer" class="ml-4">
+                            <label for="input-1" id="choice-1" class="py-3 px-2 w-full h-full"></label>
                         </div>
-                        <div class="border-1 py-3 px-5 rounded-xl border-gray-300">
-                            <input type="radio" name="answer">
-                            <label class="px-3">Venus</label>
+                        <div
+                            class="border-1 rounded-xl border-gray-300 justify-start flex hover:bg-gray-300 active:bg-transparent">
+                            <input onclick="selectAnswer(this)" id="input-2" type="radio" name="answer" class="ml-4">
+                            <label for="input-2" id="choice-2" class="py-3 px-2 w-full h-full"></label>
                         </div>
-                        <div class="border-1 py-3 px-5 rounded-xl border-gray-300">
-                            <input type="radio" name="answer">
-                            <label class="px-3">Venus</label>
+                        <div
+                            class="border-1 rounded-xl border-gray-300 justify-start flex hover:bg-gray-300 active:bg-transparent">
+                            <input onclick="selectAnswer(this)" id="input-3" type="radio" name="answer" class="ml-4">
+                            <label for="input-3" id="choice-3" class="py-3 px-2 w-full h-full"></label>
                         </div>
-                        <div class="border-1 py-3 px-5 rounded-xl border-gray-300">
-                            <input type="radio" name="answer">
-                            <label class="px-3">Venus</label>
+                        <div
+                            class="border-1 rounded-xl border-gray-300 justify-start flex hover:bg-gray-300 active:bg-transparent">
+                            <input onclick="selectAnswer(this)" id="input-4" type="radio" name="answer" class="ml-4">
+                            <label for="input-4" id="choice-4" class="py-3 px-2 w-full h-full"></label>
                         </div>
                     </div>
                     <div class="px-5">
                         <hr class="bg-gray-300 h-0.5 border-none">
                     </div>
                     <div class="flex justify-between p-5">
-                        <button class="rounded-xl bg-blue-500 text-white px-5 py-2"> Previous</button>
-                        <button class="rounded-xl bg-blue-500 text-white px-5 py-2">Next</button>
+                        <button id="prev-ques"
+                            class="rounded-xl bg-blue-600 text-white px-5 py-2  hover:bg-blue-700 active:bg-blue-600">
+                            Previous</button>
+                        <button id="next-ques"
+                            class="rounded-xl bg-blue-600 text-white px-5 py-2 hover:bg-blue-700 active:bg-blue-600">Next</button>
                     </div>
 
                 </div>
                 <div class="pt-5 flex justify-end">
-                    <button class="rounded-xl bg-blue-500 text-white px-5 py-2">Submit Exam</button>
+                    <button
+                        class="rounded-xl bg-blue-600 text-white px-5 py-2  hover:bg-blue-700 active:bg-blue-600">Submit
+                        Exam</button>
                 </div>
             </div>
             <div class="border-l-1  border-gray-200 flex flex-col justify-between">
                 <div class="">
                     <span class="p-5 block text-lg font-semibold">Questions Overview</span>
-                    <div class="flex flex-col px-5">
+                    <!-- <div class="flex flex-col px-5">
                         <span>Answered</span>
                         <span>Marked</span>
                         <span>Not Answered</span>
-                    </div>
+                    </div> -->
                     <div class="p-5 flex flex-wrap gap-3">
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">1</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">2</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">3</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">4</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">5</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">6</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">7</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">8</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">9</button>
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">10</button>
+                        <button onclick="showQuestion(1)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">1</button>
+                        <button onclick="showQuestion(2)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">2</button>
+                        <button onclick="showQuestion(3)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">3</button>
+                        <button onclick="showQuestion(4)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">4</button>
+                        <button onclick="showQuestion(5)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">5</button>
+                        <button onclick="showQuestion(6)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">6</button>
+                        <button onclick="showQuestion(7)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">7</button>
+                        <button onclick="showQuestion(8)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">8</button>
+                        <button onclick="showQuestion(9)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">9</button>
+                        <button onclick="showQuestion(10)"
+                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">10</button>
                     </div>
                 </div>
                 <div>
@@ -98,8 +138,8 @@
                         <hr class="bg-gray-100 h-0.5 border-none">
                     </div>
                     <span class="px-5 py-3 block text-lg font-semibold">Marked Questions</span>
-                    <div class="px-5 pb-5 flex flex-wrap gap-3">
-                        <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">Q1</button>
+                    <div id="marked-ques-container" class="px-5 pb-5 flex flex-wrap gap-3">
+                        <!-- <button class="w-12 h-12 border-1 border-gray-300 rounded-xl">Q1</button> -->
 
                     </div>
                 </div>
