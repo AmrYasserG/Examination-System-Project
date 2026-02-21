@@ -97,7 +97,7 @@
 
                 </div>
                 <div class="pt-5 flex justify-end">
-                    <button
+                    <button id="submit-button"
                         class="rounded-xl bg-blue-600 text-white px-5 py-2  hover:bg-blue-700 active:bg-blue-600">Submit
                         Exam</button>
                 </div>
@@ -105,31 +105,49 @@
             <div class="border-l-1  border-gray-200 flex flex-col justify-between">
                 <div class="">
                     <span class="p-5 block text-lg font-semibold">Questions Overview</span>
-                    <!-- <div class="flex flex-col px-5">
-                        <span>Answered</span>
-                        <span>Marked</span>
-                        <span>Not Answered</span>
-                    </div> -->
+                    <div class="flex flex-col px-5">
+                        <div class="flex gap-2 justify-start items-center">
+                            <svg width="15" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="110" height="110" rx="25" ry="25" fill="#CDE8D5"
+                                    stroke="#22C55E" stroke-width="4" />
+                            </svg>
+                            <span>Answered</span>
+                        </div>
+                        <div class="flex gap-2 justify-start items-center">
+                            <svg width="15" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="110" height="110" rx="25" ry="25" fill="#CFE0FF"
+                                    stroke="#2563EB" stroke-width="4" />
+                            </svg>
+                            <span>Current Question</span>
+                        </div>
+                        <div class="flex gap-2 justify-start items-center">
+                            <svg width="15" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="5" width="110" height="110" rx="25" ry="25" fill="#ffffff"
+                                    stroke="#9CA3AF" stroke-width="4" />
+                            </svg>
+                            <span>Not Answered</span>
+                        </div>
+                    </div>
                     <div class="p-5 flex flex-wrap gap-3">
-                        <button onclick="showQuestion(1)"
-                            class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">1</button>
-                        <button onclick="showQuestion(2)"
+                        <button id="question-1-button" onclick="showQuestion(1)"
+                            class="w-12 h-12 border-1 rounded-xl border-gray-300 hover:bg-gray-300 active:bg-transparent">1</button>
+                        <button id="question-2-button" onclick="showQuestion(2)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">2</button>
-                        <button onclick="showQuestion(3)"
+                        <button id="question-3-button" onclick="showQuestion(3)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">3</button>
-                        <button onclick="showQuestion(4)"
+                        <button id="question-4-button" onclick="showQuestion(4)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">4</button>
-                        <button onclick="showQuestion(5)"
+                        <button id="question-5-button" onclick="showQuestion(5)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">5</button>
-                        <button onclick="showQuestion(6)"
+                        <button id="question-6-button" onclick="showQuestion(6)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">6</button>
-                        <button onclick="showQuestion(7)"
+                        <button id="question-7-button" onclick="showQuestion(7)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">7</button>
-                        <button onclick="showQuestion(8)"
+                        <button id="question-8-button" onclick="showQuestion(8)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">8</button>
-                        <button onclick="showQuestion(9)"
+                        <button id="question-9-button" onclick="showQuestion(9)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">9</button>
-                        <button onclick="showQuestion(10)"
+                        <button id="question-10-button" onclick="showQuestion(10)"
                             class="w-12 h-12 border-1 border-gray-300 rounded-xl hover:bg-gray-300 active:bg-transparent">10</button>
                     </div>
                 </div>
