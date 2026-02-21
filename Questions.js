@@ -1,10 +1,10 @@
 
 //handle local storage----------------
 var users = JSON.parse(localStorage.getItem('users'))
-var user = JSON.parse(localStorage.getItem('user'))
+var user = JSON.parse(sessionStorage.getItem('user'))
 
 function updateUser() {
-    localStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('user', JSON.stringify(user));
 }
 function updateUsers() {
     for (var i = 0; i < users.length; i++) {
@@ -17,68 +17,9 @@ function updateUsers() {
 }
 
 //questions-------------------------------------
-var questions = [
-    {
-        question: "What is the capital of Canada?",
-        choices: ["Toronto", "Ottawa", "Vancouver", "Montreal"],
-        answer: "Ottawa"
-    },
-    {
-        question: "Which country has the largest population in the world?",
-        choices: ["USA", "India", "China", "Brazil"],
-        answer: "India"
-    },
-    {
-        question: "Mount Kilimanjaro is located in which country?",
-        choices: ["Kenya", "Tanzania", "Ethiopia", "Uganda"],
-        answer: "Tanzania"
-    },
-    {
-        question: "Which river is the longest in the world?",
-        choices: ["Amazon River", "Nile River", "Yangtze River", "Mississippi River"],
-        answer: "Nile River"
-    },
-    {
-        question: "Which country is known as the Land of the Rising Sun?",
-        choices: ["China", "South Korea", "Japan", "Thailand"],
-        answer: "Japan"
-    },
-    {
-        question: "Which desert is the largest hot desert in the world?",
-        choices: ["Sahara Desert", "Arabian Desert", "Gobi Desert", "Kalahari Desert"],
-        answer: "Sahara Desert"
-    },
-    {
-        question: "Which country has the most islands?",
-        choices: ["Indonesia", "Philippines", "Sweden", "Norway"],
-        answer: "Sweden"
-    },
-    {
-        question: "What is the smallest country in the world?",
-        choices: ["Monaco", "Maldives", "Vatican City", "San Marino"],
-        answer: "Vatican City"
-    },
-    {
-        question: "Which ocean is the largest?",
-        choices: ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
-        answer: "Pacific Ocean"
-    },
-    {
-        question: "The Great Barrier Reef is located in which country?",
-        choices: ["USA", "Australia", "Philippines", "Mexico"],
-        answer: "Australia"
-    }
-];
+var questions = user.questions;
 var answers = user.answers;
 var markedQuesArr = user.markedQuesArr;
-
-
-
-//randomize questions and answers---------------
-// questions.sort(() => Math.random() - 0.5);
-// for (let i = 0; i < questions.length; i++) {
-//     questions[i].choices.sort(() => Math.random() - 0.5);
-// }
 
 //handle timer & progress bar --------------------
 var mins = document.getElementById('timer-mins');
@@ -250,12 +191,12 @@ var nextQues = document.getElementById('next-ques');
 var prevQues = document.getElementById('prev-ques');
 
 nextQues.addEventListener('click', function () {
-    input1.checked = false;
-    input2.checked = false;
-    input3.checked = false;
-    input4.checked = false;
     var currQues = Number(questionNum.textContent);
     if (currQues < 10) {
+        input1.checked = false;
+        input2.checked = false;
+        input3.checked = false;
+        input4.checked = false;
         showQuestion(currQues + 1)
     }
     if (markedQuesArr[Number(questionNum.textContent) - 1] == true)
@@ -264,12 +205,12 @@ nextQues.addEventListener('click', function () {
         unmark()
 })
 prevQues.addEventListener('click', function () {
-    input1.checked = false;
-    input2.checked = false;
-    input3.checked = false;
-    input4.checked = false;
     var currQues = Number(questionNum.textContent);
     if (currQues > 1) {
+        input1.checked = false;
+        input2.checked = false;
+        input3.checked = false;
+        input4.checked = false;
         showQuestion(currQues - 1)
     }
     if (markedQuesArr[Number(questionNum.textContent) - 1] == true)
@@ -302,6 +243,8 @@ submitButton.addEventListener('click', function () {
         if (userChoice) {
             window.location.replace('ResultPage.html');
         }
+    } else {
+        window.location.replace('ResultPage.html');
     }
 
 })
