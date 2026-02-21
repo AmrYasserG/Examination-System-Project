@@ -136,15 +136,21 @@ function validateSubmission(e) {
     }
 }
 
-//add user to localStorage-------------
+//add user and users to localStorage -------------------
+
 function addToUsers() {
     var user = {
         fname: (fname.value).trim(),
         lname: (lname.value).trim(),
         email: (email.value).trim(),
         password: (password.value).trim(),
-        grade: -1
-    }
+        grade: -1,
+        timeLeft: 10 * 60,
+        answers: new Array(10),
+        markedQuesArr: new Array(10),
+        questions: new Array(10),
+        currQuestion: 1
+    };
     if (localStorage.getItem('users') === null) {
         var users = [];
         users.push(user);
@@ -159,22 +165,28 @@ function addToUsers() {
                 return "";
             }
         }
+        // sessionStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', JSON.stringify(user));
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
-        userSession();
+
     }
 }
 
 //add user to sessionStorage-----------------
-function userSession() {
-    var user = {
-        fname: (fname.value).trim(),
-        lname: (lname.value).trim(),
-        email: (email.value).trim(),
-        password: (password.value).trim(),
-        grade: -1
-    };
-    sessionStorage.setItem('user',JSON.stringify(user));
-}
+// function userSession() {
+//     var user = {
+//         fname: (fname.value).trim(),
+//         lname: (lname.value).trim(),
+//         email: (email.value).trim(),
+//         password: (password.value).trim(),
+//         grade: -1,
+//         timeLeft: 10 * 60,
+//         answers: new Array(10),
+//         markedQuesArr: new Array(10),
+//         questions: new Array(10)
+//     };
+//     sessionStorage.setItem('user', JSON.stringify(user));
+// }
 
 
