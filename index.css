@@ -16,16 +16,19 @@ body {
 
 .hero {
   width: 90%;
-  height: 90vh;
-  margin: auto;
-  margin-top: 5vh;
-  background-image: url("assests/landing.jpg");
+  min-height: 90vh;
+  margin: 5vh auto;
+  background-image: url("assests/landing.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.25);
   padding: 30px 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
 }
 
 /* ===== NAVBAR ===== */
@@ -69,6 +72,32 @@ body {
   text-decoration: none;
   color: black;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar nav {
+    gap: 15px;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .btn {
+    align-self: center;
+    padding: 10px 30px;
+  }
 }
 
 

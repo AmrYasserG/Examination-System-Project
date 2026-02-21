@@ -87,15 +87,15 @@ function handleProgressBar() {
     }
 }
 
-// var interval = setInterval(() => {
-//     if (timeLeft >= 0) {
-//         handleProgressBar();
-//         updateTime();
-//     }
-//     else {
-//         clearInterval(interval)
-//     }//handle time out logic
-// }, 1000)
+var interval = setInterval(() => {
+    if (timeLeft >= 0) {
+        handleProgressBar();
+        updateTime();
+    }
+    else {
+        clearInterval(interval)
+    }//handle time out logic
+}, 1000)
 
 //handle choice logic------------------------------
 var input1 = document.getElementById('input-1');

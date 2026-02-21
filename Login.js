@@ -12,20 +12,30 @@ var loginForm = document.getElementById('loginForm');
 
 function validateEmail() {
     const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailValue = email.value.trim();
 
-    if (email.value.trim() === "")
-        emailError.textContent = '*This Field is Required'
-    else if (!(checkEmail.test(email.value)))
-        emailError.textContent = '*Email Not Valid'
-    else
-        emailError.textContent = ''
+    if (emailValue === "") {
+        emailError.textContent = '*This Field is Required';
+        return false;
+    } else if (!checkEmail.test(emailValue)) {
+        emailError.textContent = '*Email Not Valid';
+        return false;
+    } else {
+        emailError.textContent = '';
+        return true;
+    }
 }
 
+
 function validatePass() {
-    if (password.value.trim() === "")
-        passwordError.textContent = '*This Field is Required'
-    else
-        passwordError.textContent = ''
+    const passwordValue = password.value.trim();
+    if (passwordValue === "") {
+        passwordError.textContent = '*This Field is Required';
+        return false;
+    } else {
+        passwordError.textContent = '';
+        return true;
+    }
 }
 
 
@@ -34,39 +44,37 @@ function validateLogin(e) {
 
     e.preventDefault();
 
-    validateEmail();
-    validatePass();
+    const isEmailValid = validateEmail();
+    const isPassValid = validatePass();
 
-    if (emailError.textContent !== '' || passwordError.textContent !== '') {
-        return;
-    }
+    if (!isEmailValid || !isPassValid) return;
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    var foundUser = null;
+    
+    var foundUser = users.find(user => user.email.toLowerCase() === email.value.trim().toLowerCase());
 
-    for (var i = 0; i < users.length; i++) {
+    if (!foundUser) {
+        emailError.textContent = '*Email not registered';
+        passwordError.textContent = '';
+    } else if (foundUser.password !== password.value.trim()) {
+        emailError.textContent = '';
+        passwordError.textContent = '*Incorrect password';
+    } else {
+        
+        emailError.textContent = '';
+        passwordError.textContent = '';
 
-        if (users[i].email === email.value.trim()
-            && users[i].password === password.value.trim()) {
-
-            foundUser = users[i];
-            break;
-        }
-    }
-
-    if (foundUser !== null) {
-
-       
         sessionStorage.setItem('user', JSON.stringify(foundUser));
 
-       
         window.location.href = "index.html";
 
-    } else {
-        emailError.textContent = '*Invalid Email or Password';
+
     }
+
 }
 
 
+email.addEventListener('input', () => emailError.textContent = '');
+password.addEventListener('input', () => passwordError.textContent = '');
 loginForm.addEventListener('submit', validateLogin);

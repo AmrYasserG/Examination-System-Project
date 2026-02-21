@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
        
@@ -13,40 +14,66 @@
 
 .cup-big {
   display: inline-block;
-  animation: bounceCup 1.5s infinite;
+  /* animation: bounceCup 1.5s infinite; */
 }
 
     </style>
 </head>
 
-<!-- <body class="bg-gradient-to-br from-purple-50 via-pink-50 to-blue-600 min-h-screen py-10 px-4"> -->
-    <body class="bg-blue-100  min-h-screen py-10 px-4">
 
-<div class="max-w-4xl mx-auto">
+    <body class="bg-red-50  min-h-screen py-10 px-4">
+
+<div class="max-w-4xl mx-auto bg-white">
 
 
   <div class="flex justify-center mb-6">
-  <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-yellow-400 via-orange-400 to-red-500 rounded-full cup-big shadow-2xl">
+  <!-- <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 via-purple-400 to-red-500 rounded-full cup-big shadow-2xl">
     <span class="text-5xl">🏆</span>
-  </div>
+    
+  </div> -->
+  <a href="#" class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-500 rounded-full cup-big shadow-2xl mt-3">
+  <i class="fa-solid fa-trophy text-white text-xl drop-shadow-md"></i>
+</a>
 </div>
 
-    <h1 class="text-5xl font-bold text-center mb-10 text-blue-700">
+    <h1 class="text-4xl font-bold text-center">
          Leaderboard
     </h1>
 
-    <div class="bg-white rounded-3xl shadow-2xl p-8">
-        <div id="leaderboardList" class="space-y-4"></div>
-    </div>
-    <br>
+   
+   <p class="text-gray-500 mb-6 text-center">Top Performers in ExamPro</p>
 
     <div class="mb-6">
-        <a href="ResultPage.html"
+        <!-- <a href="ResultPage.html"
            class="px-5 py-2 bg-gray-200 rounded-lg shadow hover:bg-gray-300 transition">
             ← Back to Result
-        </a>
+        </a> -->
+        <div class="overview text-center">
+
+  <div class="overview-buttons flex flex-wrap justify-center gap-2 p-5">
+    
+    <a href="index.html">
+      <button class="flex items-center gap-2 px-4 py-2 border rounded bg-white text-black hover:bg-gray-200 active:bg-white transition font-bold">
+        <img src="/assests/home.png" alt="Home Icon" class="w-5 h-5">
+        Back to Home
+      </button>
+    </a>
+
+  </div>
+
+</div>
     </div>
 
 </div>
+
+<div class="max-w-4xl mx-auto bg-white">
+ <div class="bg-white rounded-3xl shadow-2xl p-8">
+        <div id="leaderboardList" class="space-y-4"></div>
+    </div>
+</div>
+
+<div id="userRankSection" class="max-w-4xl mx-auto bg-white mt-3 rounded-sm"></div>
+
+<script src="leaderboard.js"></script>
 </body>
 </html>
