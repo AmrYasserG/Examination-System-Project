@@ -7,15 +7,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
        
-@keyframes bounceCup {
+/* @keyframes bounceCup {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-15px) rotate(10deg); }
 }
 
 .cup-big {
   display: inline-block;
-  /* animation: bounceCup 1.5s infinite; */
-}
+  animation: bounceCup 1.5s infinite;
+} */
 
     </style>
 </head>
@@ -23,7 +23,7 @@
 
     <body class="bg-red-50  min-h-screen py-10 px-4">
 
-<div class="max-w-4xl mx-auto bg-white">
+<div class="w-full max-w-4xl mx-auto bg-white px-4 sm:px-6">
 
 
   <div class="flex justify-center mb-6">
@@ -36,7 +36,7 @@
 </a>
 </div>
 
-    <h1 class="text-4xl font-bold text-center">
+   <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center">
          Leaderboard
     </h1>
 
@@ -53,7 +53,7 @@
   <div class="overview-buttons flex flex-wrap justify-center gap-2 p-5">
     
     <a href="index.html">
-      <button class="flex items-center gap-2 px-4 py-2 border rounded bg-white text-black hover:bg-gray-200 active:bg-white transition font-bold">
+      <button class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 border rounded bg-white text-black hover:bg-gray-200 transition font-bold">
         <img src="/assests/home.png" alt="Home Icon" class="w-5 h-5">
         Back to Home
       </button>
@@ -66,13 +66,13 @@
 
 </div>
 
-<div class="max-w-4xl mx-auto bg-white">
- <div class="bg-white rounded-3xl shadow-2xl p-8">
+<div class="w-full max-w-4xl mx-auto bg-white px-4 sm:px-6">
+ <div class="bg-white rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8">
         <div id="leaderboardList" class="space-y-4"></div>
     </div>
 </div>
 
-<div id="userRankSection" class="max-w-4xl mx-auto bg-white mt-3 rounded-sm"></div>
+<div id="userRankSection" class="w-full max-w-4xl mx-auto bg-white px-4 sm:px-6"></div>
 
 <script src="leaderboard.js"></script>
 </body>

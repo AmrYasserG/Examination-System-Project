@@ -1,3 +1,6 @@
+if (sessionStorage.getItem('user')) {
+    window.location.replace('index.html');
+}
 
 var email = document.getElementById('email-input');
 var password = document.getElementById('password-input');
@@ -78,3 +81,17 @@ function validateLogin(e) {
 email.addEventListener('input', () => emailError.textContent = '');
 password.addEventListener('input', () => passwordError.textContent = '');
 loginForm.addEventListener('submit', validateLogin);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
