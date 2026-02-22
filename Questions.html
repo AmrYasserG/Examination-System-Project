@@ -10,7 +10,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col">
-    <header class="flex justify-center items-center gap-10 p-5">
+    <header class="flex justify-center items-center gap-5 p-5">
         <div class="flex justify-center items-center gap-1">
             <div class="w-5">
                 <img src="assests/clock.png" alt="">
@@ -24,6 +24,8 @@
 
         <progress id="progress-bar" class="progress progress-accent w-full transition duration-10 " value="100"
             max="100"></progress>
+        <button id="sign-out"
+            class="rounded-xl text-nowrap border-gray-300 border-1 px-5 py-2  hover:bg-gray-300 active:bg-transparent">Sign Out</button>
 
     </header>
     <div class="">
@@ -101,6 +103,32 @@
                         class="rounded-xl bg-blue-600 text-white px-5 py-2  hover:bg-blue-700 active:bg-blue-600">Submit
                         Exam</button>
                 </div>
+                <section>
+                    <!-- Open the modal using ID.showModal() method -->
+                    <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
+                    <dialog id="my_modal_2" class="modal">
+                        <div class="modal-box">
+                            <h3 class="text-lg font-bold">Attention</h3>
+                            <p id="" class="py-2">You have not answered all the questions.</p>
+                            <p id="" class="">Questions which are not answered:</p>
+                            <p id="modal-text" class=""></p>
+                            <p id="" class="py-2">Are u sure you want to submit?</p>
+                            <div class="flex gap-4 justify-end">
+                                <form method="dialog">
+                                    <!-- if there is a button in form, it will close the modal -->
+                                    <button
+                                        class="rounded-xl border-gray-300 border-1 px-5 py-2  hover:bg-gray-300 active:bg-transparent">Cancel</button>
+                                </form>
+                                <button id="confirm-submit-button"
+                                    class="rounded-xl bg-blue-600 text-white px-5 py-2  hover:bg-blue-700 active:bg-blue-600">Submit
+                                </button>
+                            </div>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
+                </section>
             </div>
             <div class="border-l-1  border-gray-200 flex flex-col justify-between">
                 <div class="">

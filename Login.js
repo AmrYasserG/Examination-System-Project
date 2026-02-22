@@ -29,6 +29,14 @@ function validateEmail() {
     }
 }
 
+function validatePass1() {
+    if (password.value === "")
+        passwordError.textContent = '*Ths Field is Required'
+    else if (password.value.length < 8)
+        passwordError.textContent = '*Password Needs to be More than 8 Letters'
+    else
+        passwordError.textContent = ''
+}
 
 function validatePass() {
     const passwordValue = password.value.trim();
@@ -54,7 +62,6 @@ function validateLogin(e) {
 
     var users = JSON.parse(localStorage.getItem('users')) || [];
 
-    
     var foundUser = users.find(user => user.email.toLowerCase() === email.value.trim().toLowerCase());
 
     if (!foundUser) {
@@ -64,7 +71,7 @@ function validateLogin(e) {
         emailError.textContent = '';
         passwordError.textContent = '*Incorrect password';
     } else {
-        
+
         emailError.textContent = '';
         passwordError.textContent = '';
 

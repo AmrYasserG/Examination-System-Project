@@ -3,6 +3,13 @@
 var users = JSON.parse(localStorage.getItem('users'))
 var user = JSON.parse(sessionStorage.getItem('user'))
 
+if (user == null)
+    window.location.replace('LoginPage.html');
+
+if (user.grade != -1)
+    window.location.replace('ResultPage.html');
+
+
 function updateUser() {
     sessionStorage.setItem('user', JSON.stringify(user));
 }
@@ -15,6 +22,15 @@ function updateUsers() {
     }
     localStorage.setItem('users', JSON.stringify(users));
 }
+
+// handle sign out-------------------------------------------
+var signOutBtn = document.getElementById('sign-out');
+signOutBtn.addEventListener('click', function () {
+    sessionStorage.removeItem('user');
+
+    window.location.replace('LoginPage.html');
+});
+
 
 //questions-------------------------------------
 var questions = user.questions;
@@ -219,6 +235,9 @@ prevQues.addEventListener('click', function () {
 
 //handle submit button -----------------------------------
 var submitButton = document.getElementById('submit-button');
+var modal = document.getElementById('my_modal_2');
+var modalText = document.getElementById('modal-text');
+
 submitButton.addEventListener('click', function () {
     var unansweredQuestions = [];
     for (var i = 0; i < answers.length; i++) {
@@ -233,18 +252,16 @@ submitButton.addEventListener('click', function () {
             else
                 temp += ', question ' + unansweredQuestions[i];
         }
-        var confirmText = 'You have not answered all the questions.\nQuestions which are not answered:\n';
-        confirmText += temp + '\n';
-        confirmText += 'Are u sure you want to submit?';
-        var userChoice = confirm(confirmText);
-        console.log(userChoice);
-        if (userChoice) {
-            window.location.replace('ResultPage.html');
-        }
+        modal.showModal();
+        modalText.textContent = temp;
     } else {
         window.location.replace('ResultPage.html');
     }
+})
 
+var confirmSubmitButton = document.getElementById('confirm-submit-button');
+confirmSubmitButton.addEventListener('click', function () {
+    window.location.replace('ResultPage.html');
 })
 
 

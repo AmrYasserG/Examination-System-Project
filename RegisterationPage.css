@@ -25,7 +25,8 @@ body.dark {
 }
 
 body {
-    height: 100vh;
+    height: 98vh;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,7 +67,7 @@ main {
     width: 100%;
     max-width: 500px;
     padding: 20px;
-    margin-top: 70px;
+    /* margin-top: 70px; */
     align-self: center;
     box-sizing: border-box;
     border: 2px solid var(--border);

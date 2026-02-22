@@ -6,7 +6,14 @@
 }
 
 body {
-  height: 100vh;
+  height: 98vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
   /* overflow: hidden;
   background-image: url("assests/ef9860e7662cb6c4fae2fe245028f04e.jpg"); 
   background-repeat: no-repeat;
@@ -17,18 +24,18 @@ body {
 .hero {
   width: 90%;
   min-height: 90vh;
-  margin: 5vh auto;
+  /* margin: 5vh auto; */
   background-image: url("assests/landing.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   padding: 30px 60px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 /* ===== NAVBAR ===== */
@@ -59,7 +66,7 @@ body {
   font-weight: bold;
 }
 
-.btn{
+.btn {
   display: inline-block;
   width: 20%;
   height: 5%;
@@ -68,7 +75,7 @@ body {
   background-color: rgb(208, 208, 246);
   border-radius: 10px;
   text-align: center;
-  line-height: 40px; 
+  line-height: 40px;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -99,5 +106,3 @@ body {
     padding: 10px 30px;
   }
 }
-
-
