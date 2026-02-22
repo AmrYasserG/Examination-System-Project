@@ -1,0 +1,46 @@
+/* Light Mode */
+:root {
+  --body-bg: 0.92 0.05 230;      
+  --card-bg: 1 0 0;              
+  --hover-bg: 0.85 0.05 230;    
+  --text-color: 0.15 0 0;       
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --body-bg: 0.15 0.2 230;      
+  --card-bg: 0.50 0.08 230;      
+  --hover-bg: 0.38 0.05 230;     
+  --text-color: 0.15 0 0;        
+}
+
+/* Body */
+body {
+  background-color: oklch(var(--body-bg));
+  color: oklch(var(--text-color));
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Div / Card */
+.card-bg {
+  background-color: oklch(var(--card-bg));
+  color: oklch(var(--text-color));
+  transition: background-color 0.3s, color 0.4s;
+}
+
+/* Muted text */
+/* .text-muted {
+  color: oklch(var(--text-color) / 0.6);
+} */
+
+/* Back button */
+.back-btn {
+  /* background-color: oklch(var(--body-bg)); */
+  color: oklch(var(--text-color));
+  border: 1px solid oklch(var(--text-color) / 0.2);
+  transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+  background-color: oklch(var(--hover-bg));
+}
