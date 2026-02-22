@@ -122,8 +122,8 @@ form {
 
 .input-text {
     /* width: 100%; */
-    height: 25px;
-    padding: 5px 10px;
+    height: 40px;
+    padding: 8px 12px;
     border-radius: 6px;
     border: 1px solid var(--border);
     background-color: var(--card);
@@ -222,7 +222,7 @@ span {
     color: var(--error);
 }
 
-.remember{
+.remember {
     display: flex;
 
 }

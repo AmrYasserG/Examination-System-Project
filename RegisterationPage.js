@@ -53,7 +53,7 @@ var cpasswordError = document.getElementById('cpassword-error');
 
 
 function validateFName() {
-    const containsNumCheck = /\d/;
+    var containsNumCheck = /\d/;
     if (fname.value === "")
         fnameError.textContent = '*Ths Field is Required'
     else if (isFinite(fname.value))
@@ -64,7 +64,7 @@ function validateFName() {
         fnameError.textContent = ''
 }
 function validateLName() {
-    const containsNumCheck = /\d/;
+    var containsNumCheck = /\d/;
     if (lname.value === "")
         lnameError.textContent = '*Ths Field is Required'
     else if (isFinite(lname.value))
@@ -76,7 +76,7 @@ function validateLName() {
 }
 
 function validateEmail() {
-    const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (email.value === "")
         emailError.textContent = '*Ths Field is Required'
     else if (!(checkEmail.test(email.value)))

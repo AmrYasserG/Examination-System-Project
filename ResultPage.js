@@ -68,7 +68,7 @@ var wrongAnswersScore = document.getElementById('wrong-score');
 wrongAnswersScore.textContent = wrongAnswers.length;
 
 var pieChart = document.getElementById('pie-chart');
-console.log(pieChart);
+
 
 // if (wrongAnswers.length == 0)
 //     pieChart.classList.add("bg-[conic-gradient(theme(colors.green.600)_0%_100%]");

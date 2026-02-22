@@ -2,51 +2,45 @@
 <html lang="en" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Leaderboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="RegisterationPage.css">
-  <link rel="stylesheet" href="theme.css">
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="RegisterationPage.css">
+    <link rel="stylesheet" href="theme.css">
     <title>Login Page</title>
 </head>
 
 <body>
-        <!-- Dark Mode Toggle -->
-  <div class="fixed top-4 right-4">
-    <button
-      id="themeToggle"
-      onclick="toggleTheme()"
-      class="w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:shadow-lg transition cursor-pointer card-bg">
-      <i id="themeIcon" class="fa-solid fa-sun text-yellow-500 text-lg"></i>
-    </button>
-  </div>
-
-    
     <main>
         <section class="main-section">
-
-            
-  
-
+            <!-- Dark Mode Toggle -->
+            <!-- <div class="">
+                <button id="themeToggle" onclick="toggleTheme()"
+                    class="w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:shadow-lg transition cursor-pointer card-bg">
+                    <i id="themeIcon" class="fa-solid fa-sun text-yellow-500 text-lg"></i>
+                </button>
+            </div> -->
             <div class="logo">
                 <img src="assests/ExamProLogo.png" alt="ExamPro Logo">
             </div>
 
-            <div class="create-text">
-                <h2>Login</h2>
+            <div class="text-center">
+                <p class="font-medium text-2xl pt-5 pb-1">Login to Account</p>
                 <p>Welcome back! please login to continue</p>
             </div>
+
 
             <form class="login-form" id="loginForm">
 
                 <label for="email-input">Email</label>
                 <input onblur="validateEmail()" autocomplete="off" class="input-text" type="text" id="email-input">
                 <span class="error-msg" id="email-error"></span>
-
+                <br>
                 <label for="password-input">Password</label>
-                <input onblur="validatePass1()" autocomplete="off" class="input-text" type="password" id="password-input">
+                <input onblur="validatePass1()" autocomplete="off" class="input-text" type="password"
+                    id="password-input">
                 <span class="error-msg" id="password-error"></span>
 
                 <!-- <div class="options">
@@ -75,7 +69,7 @@
             </button> -->
             </form>
 
-            <p class="already-text">
+            <p class="already-text p-3">
                 Don't have an Account?
                 <a id="register">Register </a>
             </p>

@@ -37,6 +37,21 @@ var questions = user.questions;
 var answers = user.answers;
 var markedQuesArr = user.markedQuesArr;
 
+//handle user name in modal timeout------------------------
+var userName = document.getElementById('user-name');
+userName.textContent = ` ${capitalizeFirstChar(user.fname)} ${capitalizeFirstChar(user.lname)}`;
+
+
+function capitalizeFirstChar(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
+var modalTimeout = document.getElementById('my_modal_6');
+
+var timeOutSubmit = document.getElementById('timeout-submit');
+timeOutSubmit.addEventListener('click', function () {
+    window.location.replace('ResultPage.html');
+})
+
 //handle timer & progress bar --------------------
 var mins = document.getElementById('timer-mins');
 var secs = document.getElementById('timer-secs');
@@ -73,9 +88,11 @@ var interval = setInterval(() => {
     }
     else {
         clearInterval(interval);
-        window.location.replace('ResultPage.html');
+        modalTimeout.showModal();
+
     }
 }, 1000);
+
 
 //handle choice logic------------------------------
 var input1 = document.getElementById('input-1');
@@ -199,7 +216,7 @@ function showQuestion(num) {
     selectAnswer(null);
     handleMarkedQuesButtons();
     // console.log(markedQuesArr);
-    
+
     if (markedQuesArr[Number(num) - 1] == true)
         mark();
     else
@@ -271,6 +288,8 @@ var confirmSubmitButton = document.getElementById('confirm-submit-button');
 confirmSubmitButton.addEventListener('click', function () {
     window.location.replace('ResultPage.html');
 })
+
+
 
 
 

@@ -13,35 +13,29 @@
 
 <body class="h-screen box-border font-sans bg-gray-100 flex flex-col justify-center items-center">
 
-    <!-- Dark Mode Toggle -->
-  <div class="fixed top-4 right-4">
-    <button
-      id="themeToggle"
-      onclick="toggleTheme()"
+  <!-- Dark Mode Toggle -->
+  <!-- <div class="fixed top-4 right-4">
+    <button id="themeToggle" onclick="toggleTheme()"
       class="w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:shadow-lg transition cursor-pointer card-bg">
       <i id="themeIcon" class="fa-solid fa-sun text-yellow-500 text-lg"></i>
     </button>
-  </div>
+  </div> -->
 
   <div class="w-[90%] min-h-[90vh]
               bg-[url('assests/landing.png')] bg-cover bg-center 
-              rounded-xl shadow-2xl p-8 md:p-12 
+              rounded-xl shadow-2xl p-5
               flex flex-col justify-between">
 
- 
-    <header class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <nav class="flex gap-6 justify-between">
+        <div class="w-[120px]">
+          <img src="assests/ExamProLogo.png" class="w-full" alt="ExamPro Logo">
+        </div>
+       
+        <button id="sign-out"
+          class=" right-5 rounded-xl text-nowrap border-gray-300 border-1 px-5 py-2  hover:bg-white active:bg-transparent">Sign
+          Out</button>
 
-      <div class="w-[120px] md:w-[120px]">
-        <img src="assests/ExamProLogo.png" class="w-full" alt="ExamPro Logo">
-      </div>
-
-      <nav class="flex gap-6">
-        <a id="sign-out" class="text-sm font-bold text-gray-800 hover:text-blue-600 transition">
-          Sign out
-        </a>
       </nav>
-
-    </header>
 
     <div class="px-4 md:px-10 py-10 md:py-16">
       <h1 class="text-5xl md:text-7xl font-bold text-gray-900">
@@ -53,7 +47,7 @@
       </h4>
     </div>
 
-    
+
     <div>
       <button id="openModal" class="ml-4 md:ml-10 mt-6 
                px-10 py-3 

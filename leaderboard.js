@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
             return b.grade - a.grade;
         }
 
-        const nameA = (a.fname + " " + a.lname).toLowerCase();
-        const nameB = (b.fname + " " + b.lname).toLowerCase();
+        var nameA = (a.fname + " " + a.lname).toLowerCase();
+        var nameB = (b.fname + " " + b.lname).toLowerCase();
 
         return nameA.localeCompare(nameB);
     });
 
-    const leaderboardList = document.getElementById("leaderboardList");
+    var leaderboardList = document.getElementById("leaderboardList");
 
     if (leaderboard.length === 0) {
         leaderboardList.innerHTML = `
@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     leaderboard.slice(0, 10).forEach((user, index) => {
 
-        const percentage = user.grade * 10;
-        const fullName = capitalizeFirstChar(user.fname) + " " + capitalizeFirstChar(user.lname);
+        var percentage = user.grade * 10;
+        var fullName = capitalizeFirstChar(user.fname) + " " + capitalizeFirstChar(user.lname);
 
         let medal = "";
         if (index === 0) medal = "🥇";
         else if (index === 1) medal = "🥈";
         else if (index === 2) medal = "🥉";
 
-        const div = document.createElement("div");
+        var div = document.createElement("div");
         div.className = "flex justify-between items-center p-4 rounded-xl bg-gray-100 border border-gray-200";
 
         div.innerHTML = `
@@ -61,21 +61,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
     
-    const currentUser = JSON.parse(sessionStorage.getItem("user"));
-    const userRankSection = document.getElementById("userRankSection");
+    var currentUser = JSON.parse(sessionStorage.getItem("user"));
+    var userRankSection = document.getElementById("userRankSection");
 
     if (currentUser) {
-        const userIndex = leaderboard.findIndex(u => u.email === currentUser.email);
+        var userIndex = leaderboard.findIndex(u => u.email === currentUser.email);
 
         if (userIndex !== -1) {
 
-            const user = leaderboard[userIndex];
-            const percentage = user.grade * 10;
+            var user = leaderboard[userIndex];
+            var percentage = user.grade * 10;
 
             
 
             userRankSection.innerHTML = `
-                <div class="bg-white rounded-xl shadow-md p-4 flex justify-between items-center border mt-4">
+                <div class="bg-white rounded-xl shadow-md p-4 flex justify-between items-center mt-4">
                     <div>
                         <p class="text-sm text-gray-500">Your Rank</p>
                         <p class="text-lg font-bold">#${userIndex + 1}</p>
@@ -103,6 +103,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function capitalizeFirstChar(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
+// handle sign out-------------------------------------------
+var user = JSON.parse(sessionStorage.getItem('user'))
+
+if (user == null)
+    window.location.replace('LoginPage.html');
+
+
+var signOutBtn = document.getElementById('sign-out');
+signOutBtn.addEventListener('click', function () {
+    sessionStorage.removeItem('user');
+
+    window.location.replace('LoginPage.html');
+});
 
 
 
@@ -111,7 +124,7 @@ function capitalizeFirstChar(s) {
 
 //     if (!localStorage.getItem("leaderboard")) {
 
-        // const dummyData = [
+        // var dummyData = [
         //     { fname: "amr", lname: "galal", email: "amr@mail.com", password: "12345678", grade: 7 },
         //     { fname: "sara", lname: "mohamed", email: "sara@mail.com", password: "12345678", grade: 3 },
         //     { fname: "ahmed", lname: "ali", email: "ahmed@mail.com", password: "12345678", grade: 9 },
@@ -139,21 +152,21 @@ function capitalizeFirstChar(s) {
 //             return b.grade - a.grade;
 //         }
 
-//         const nameA = (a.fname + " " + a.lname).toLowerCase();
-//         const nameB = (b.fname + " " + b.lname).toLowerCase();
+//         var nameA = (a.fname + " " + a.lname).toLowerCase();
+//         var nameB = (b.fname + " " + b.lname).toLowerCase();
 
 //         return nameA.localeCompare(nameB);
 //     });
 
-//     const leaderboardList = document.getElementById("leaderboardList");
+//     var leaderboardList = document.getElementById("leaderboardList");
     
 
 //     leaderboard.slice(0, 10).forEach((user, index) => {
 
-//         const percentage = user.grade * 10;
-//         const fullName = user.fname + " " + user.lname;
+//         var percentage = user.grade * 10;
+//         var fullName = user.fname + " " + user.lname;
 
-//         const div = document.createElement("div");
+//         var div = document.createElement("div");
 
 //         div.className = `
 //             flex justify-between items-center
@@ -191,20 +204,20 @@ function capitalizeFirstChar(s) {
 //         }));
 //     }
 
-//     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+//     var currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 //     if (currentUser) {
 
-//         const userIndex = leaderboard.findIndex(
+//         var userIndex = leaderboard.findIndex(
 //             user => user.email === currentUser.email
 //         );
 
 //         if (userIndex !== -1) {
 
-//             const user = leaderboard[userIndex];
-//             const percentage = user.grade * 10;
+//             var user = leaderboard[userIndex];
+//             var percentage = user.grade * 10;
 
-//             const userRankSection = document.getElementById("userRankSection");
+//             var userRankSection = document.getElementById("userRankSection");
 
 //             userRankSection.innerHTML = `
 //                 <div class="bg-white rounded-xl shadow-md p-4 flex justify-between items-center border">

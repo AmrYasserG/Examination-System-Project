@@ -14,8 +14,8 @@ var loginForm = document.getElementById('loginForm');
 
 
 function validateEmail() {
-    const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const emailValue = email.value.trim();
+    var checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var emailValue = email.value.trim();
 
     if (emailValue === "") {
         emailError.textContent = '*This Field is Required';
@@ -39,7 +39,7 @@ function validatePass1() {
 }
 
 function validatePass() {
-    const passwordValue = password.value.trim();
+    var passwordValue = password.value.trim();
     if (passwordValue === "") {
         passwordError.textContent = '*This Field is Required';
         return false;
@@ -55,8 +55,8 @@ function validateLogin(e) {
 
     e.preventDefault();
 
-    const isEmailValid = validateEmail();
-    const isPassValid = validatePass();
+    var isEmailValid = validateEmail();
+    var isPassValid = validatePass();
 
     if (!isEmailValid || !isPassValid) return;
 
