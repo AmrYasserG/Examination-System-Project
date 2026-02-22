@@ -122,31 +122,6 @@ function markAnsweredButtons() {
 }
 
 
-//handle showing questions----------------------
-var questionNum = document.getElementById('question-num');
-var questionText = document.getElementById('question-text');
-var choice1 = document.getElementById('choice-1');
-var choice2 = document.getElementById('choice-2');
-var choice3 = document.getElementById('choice-3');
-var choice4 = document.getElementById('choice-4');
-
-function showQuestion(num) {
-    user.currQuestion = Number(num);
-    if (questionNum.textContent != '')
-        unselectButton(questionNum.textContent);
-    questionNum.textContent = num;
-    questionText.textContent = questions[num - 1].question;
-    choice1.textContent = questions[num - 1].choices[0];
-    choice2.textContent = questions[num - 1].choices[1];
-    choice3.textContent = questions[num - 1].choices[2];
-    choice4.textContent = questions[num - 1].choices[3];
-    markAnsweredButtons();
-    selectButton(num);
-    selectAnswer(null);
-    handleMarkedQuesButtons();
-}
-showQuestion(user.currQuestion);
-
 
 //handle mark button-----------------------------
 var markButton = document.getElementById('mark-button');
@@ -199,6 +174,39 @@ function handleMarkedQuesButtons() {
             addMarkedQues(i + 1);
     }
 }
+
+
+//handle showing questions----------------------
+var questionNum = document.getElementById('question-num');
+var questionText = document.getElementById('question-text');
+var choice1 = document.getElementById('choice-1');
+var choice2 = document.getElementById('choice-2');
+var choice3 = document.getElementById('choice-3');
+var choice4 = document.getElementById('choice-4');
+
+function showQuestion(num) {
+    user.currQuestion = Number(num);
+    if (questionNum.textContent != '')
+        unselectButton(questionNum.textContent);
+    questionNum.textContent = num;
+    questionText.textContent = questions[num - 1].question;
+    choice1.textContent = questions[num - 1].choices[0];
+    choice2.textContent = questions[num - 1].choices[1];
+    choice3.textContent = questions[num - 1].choices[2];
+    choice4.textContent = questions[num - 1].choices[3];
+    markAnsweredButtons();
+    selectButton(num);
+    selectAnswer(null);
+    handleMarkedQuesButtons();
+    // console.log(markedQuesArr);
+    
+    if (markedQuesArr[Number(num) - 1] == true)
+        mark();
+    else
+        unmark()
+}
+showQuestion(user.currQuestion);
+
 
 //handle next and prev buttons--------------------
 var nextQues = document.getElementById('next-ques');
