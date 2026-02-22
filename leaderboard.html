@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
   <title>Leaderboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* @keyframes bounceCup {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(10deg); }
-}
 
-.cup-big {
-  display: inline-block;
-  animation: bounceCup 1.5s infinite;
-} */
-  </style>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="theme.css">
+
+
 </head>
 
+<body class="min-h-screen py-10 px-4 flex flex-col items-center justify-center">
 
-<body class="bg-blue-100  min-h-screen py-10 px-4 flex flex-col items-center justify-center">
+  <!-- Dark Mode Toggle -->
+  <div class="fixed top-4 right-4">
+    <button
+      id="themeToggle"
+      onclick="toggleTheme()"
+      class="w-10 h-10 flex items-center justify-center rounded-full shadow-md hover:shadow-lg transition cursor-pointer card-bg">
+      <i id="themeIcon" class="fa-solid fa-sun text-yellow-500 text-lg"></i>
+    </button>
+  </div>
+
   <div class="w-full max-w-4xl mx-auto flex flex-col gap-10">
 
-    <div class=" bg-white px-4 sm:px-6 rounded-xl shadow-xl">
-
+    <!-- Header Card -->
+    <div class="card-bg px-4 sm:px-6 rounded-xl shadow-xl">
 
       <div class="flex justify-center mb-6">
-        <!-- <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 via-purple-400 to-red-500 rounded-full cup-big shadow-2xl">
-    <span class="text-5xl">🏆</span>
-    
-  </div> -->
+
         <a href="#"
-          class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-500 rounded-full cup-big shadow-2xl mt-3">
+         class="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-pink-400 via-purple-400 to-blue-500 rounded-full shadow-2xl mt-3">
           <i class="fa-solid fa-trophy text-white text-xl drop-shadow-md"></i>
         </a>
       </div>
@@ -41,21 +47,17 @@
         Leaderboard
       </h1>
 
-
-      <p class="text-gray-500 mb-6 text-center">Top Performers in ExamPro</p>
+      <p class="text-muted mb-6 text-center">Top Performers in ExamPro</p>
 
       <div class="mb-6">
-        <!-- <a href="ResultPage.html"
-           class="px-5 py-2 bg-gray-200 rounded-lg shadow hover:bg-gray-300 transition">
-            ← Back to Result
-        </a> -->
+
         <div class="overview text-center">
 
           <div class="overview-buttons flex flex-wrap justify-center gap-2 p-5">
 
             <a href="index.html">
-              <button
-                class="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 border rounded bg-white text-black hover:bg-gray-200 transition font-bold">
+
+              <button class="back-btn w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 rounded font-bold">
                 <img src="/assests/home.png" alt="Home Icon" class="w-5 h-5">
                 Back to Home
               </button>
@@ -64,23 +66,29 @@
           </div>
 
         </div>
+
       </div>
 
     </div>
 
-    <!-- <div class=" bg-white px-4 sm:px-6 rounded-xl"> -->
-    <div class="bg-white  rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8">
+    <!-- Leaderboard List -->
+    <div class="card-bg rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-6 md:p-8">
       <div id="leaderboardList" class="space-y-4"></div>
     </div>
-    <!-- </div> -->
 
+
+    <!-- User Rank Section -->
     <div class="shadow-xl">
       <div id="userRankSection"></div>
 
     </div>
+
   </div>
 
+
+
   <script src="leaderboard.js"></script>
+  <script src="theme.js"></script>
 </body>
 
 </html>
