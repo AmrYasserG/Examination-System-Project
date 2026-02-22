@@ -32,6 +32,11 @@
 // };
 
 
+//handle user session-----------------------
+if (sessionStorage.getItem('user')) {
+    window.location.replace('index.html');
+}
+
 
 //validation----------------------------
 var fname = document.getElementById('fname-input');
@@ -101,6 +106,7 @@ function validateCPass() {
 }
 
 function validateSubmission(e) {
+    e.preventDefault();
     formEvent = e;
     var flagEmpty = false;
     if (fname.value === '') {
@@ -198,6 +204,7 @@ for (let i = 0; i < questions.length; i++) {
 
 //add users to localStorage -------------------
 
+var submit = false;
 function addToUsers() {
     var user = {
         fname: (fname.value).trim(),
@@ -215,6 +222,8 @@ function addToUsers() {
         var users = [];
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users))
+        submit = true;
+
     }
     else {
         var users = JSON.parse(localStorage.getItem('users'))
@@ -229,9 +238,22 @@ function addToUsers() {
         // localStorage.setItem('user', JSON.stringify(user));
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
-
+        submit = true;
     }
 }
+
+var registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', function () {
+    if (submit)
+        window.location.replace('LoginPage.html');
+    console.log(submit);
+})
+
+
+var signIn = document.getElementById('sign-in');
+signIn.addEventListener('click',function(){
+    window.location.replace('LoginPage.html');
+})
 
 //add user to sessionStorage-----------------
 // function userSession() {

@@ -226,3 +226,7 @@ span {
     display: flex;
 
 }
+
+a {
+    cursor: pointer;
+}

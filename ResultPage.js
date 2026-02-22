@@ -49,6 +49,14 @@ function updateUsers() {
 }
 
 
+//display user name----------------------------------------------
+
+var userName = document.getElementById('userName');
+userName.textContent = ` ${capitalizeFirstChar(user.fname)} ${capitalizeFirstChar(user.lname)}`
+
+function capitalizeFirstChar(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
 //handle scores -------------------------------------------------
 var score = document.getElementById('overall-score');
 score.textContent = `${(10 - wrongAnswers.length) * 10}%`;
@@ -60,13 +68,14 @@ var wrongAnswersScore = document.getElementById('wrong-score');
 wrongAnswersScore.textContent = wrongAnswers.length;
 
 var pieChart = document.getElementById('pie-chart');
+console.log(pieChart);
 
-if (wrongAnswers.length == 0)
-    pieChart.classList.add("bg-[conic-gradient(theme(colors.green.600)_0%_100%]");
-else if (wrongAnswers.length == 10)
-    pieChart.classList.add("bg-[conic-gradient(theme(colors.red.600)_0%_100%)]");
-else
-    pieChart.classList.add(`bg-[conic-gradient(theme(colors.green.600)_0%_${(10 - wrongAnswers.length) * 10}%,theme(colors.red.600)_${(10 - wrongAnswers.length) * 10}%_100%)]`);
+// if (wrongAnswers.length == 0)
+//     pieChart.classList.add("bg-[conic-gradient(theme(colors.green.600)_0%_100%]");
+// else if (wrongAnswers.length == 10)
+//     pieChart.classList.add("bg-[conic-gradient(theme(colors.red.600)_0%_100%)]");
+// else
+pieChart.classList.add(`bg-[conic-gradient(theme(colors.green.600)_0%_${(10 - wrongAnswers.length) * 10}%,theme(colors.red.600)_${(10 - wrongAnswers.length) * 10}%_100%)]`);
 
 
 //handle question correction cards--------------------------------

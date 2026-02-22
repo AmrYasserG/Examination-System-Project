@@ -77,7 +77,7 @@ function validateLogin(e) {
 
         sessionStorage.setItem('user', JSON.stringify(foundUser));
 
-        window.location.href = "index.html";
+        window.location.replace("index.html");
 
 
     }
@@ -89,6 +89,11 @@ email.addEventListener('input', () => emailError.textContent = '');
 password.addEventListener('input', () => passwordError.textContent = '');
 loginForm.addEventListener('submit', validateLogin);
 
+
+var register = document.getElementById('register');
+register.addEventListener('click',function(){
+    window.location.replace('RegisterationPage.html');
+})
 
 
 

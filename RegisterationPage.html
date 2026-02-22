@@ -23,7 +23,7 @@
                 <h2>Create Account</h2>
                 <p>Join ExamPro and start your journey</p>
             </div>
-            <form action="LoginPage.html" class="register-form" onsubmit="validateSubmission(event)">
+            <form id="register-form" class="register-form" onsubmit="validateSubmission(event)">
                 <label for="fname-input">First Name</label>
                 <input onblur="validateFName()" autocomplete="off" class="input-text" type="text" id="fname-input">
                 <span class="error-msg" id="fname-error"></span>
@@ -57,7 +57,7 @@
                 </div>
                 Sign up with Google -->
             </button>
-            <p class="already-text">Already have an Account? <a href="/LoginPage.html">Sign in</a></p>
+            <p class="already-text">Already have an Account? <a id="sign-in">Sign in</a></p>
 
 
         </section>

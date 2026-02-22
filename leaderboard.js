@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     leaderboard.slice(0, 10).forEach((user, index) => {
 
         const percentage = user.grade * 10;
-        const fullName = user.fname + " " + user.lname;
+        const fullName = capitalizeFirstChar(user.fname) + " " + capitalizeFirstChar(user.lname);
 
         let medal = "";
         if (index === 0) medal = "🥇";
@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     
+    
     const currentUser = JSON.parse(sessionStorage.getItem("user"));
     const userRankSection = document.getElementById("userRankSection");
 
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div>
                         <p class="text-sm text-gray-500">Your Rank</p>
                         <p class="text-lg font-bold">#${userIndex + 1}</p>
-                        <p class="text-sm text-gray-400">${currentUser.fname} ${currentUser.lname}</p>
+                        <p class="text-sm text-gray-400">${capitalizeFirstChar(currentUser.fname)} ${capitalizeFirstChar(currentUser.lname)}</p>
                     </div>
 
                     <div class="text-right">
@@ -98,6 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+function capitalizeFirstChar(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
 
 
 
